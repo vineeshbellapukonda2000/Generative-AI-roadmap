@@ -2,6 +2,8 @@ LEVEL 2: RAG Systems & Embeddings
 
 Core Focus: Vector Embeddings • Retrieval-Augmented Generation (RAG) • Vector Stores • Memory • Semantic Search
 
+
+
 1. What are Embeddings?
 Definition:
 Embeddings are numerical vector representations of text (or other media like images/audio) that capture semantic meaning — i.e., similar content will have similar vectors.
