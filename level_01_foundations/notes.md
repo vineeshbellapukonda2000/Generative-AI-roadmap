@@ -27,7 +27,7 @@ Generative AI creates new content like text, images, code, or audio. It learns p
  ## 1. The Adam Project (2023) – Netflix
 Stars: Ryan Reynolds, Walker Scobell, Mark Ruffalo
 
-Plot: A time-traveling fighter pilot teams up with his younger self and late father to save the future.
+Plot: A time-traveling fighter pilot teams up with his younger self and late father to saves the future.
 
 Why you'll love it: Action-packed with emotional depth, cool time-travel tech, and Reynolds-style humor.
 
