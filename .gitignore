@@ -13,3 +13,10 @@ vector_index/
 
 # Environment files
 .env
+venv/
+.DS_Store
+__pycache__/
+vector_index/
+*.pkl
+.env
+
