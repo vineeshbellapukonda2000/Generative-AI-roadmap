@@ -1,29 +1,44 @@
-import pandas as pd
-from sentence_transformers import SentenceTransformer
-import faiss
-import numpy as np
+# ingest.py
 import os
 import pickle
+import numpy as np
+import pandas as pd
+import faiss
+from sentence_transformers import SentenceTransformer
+from sklearn.preprocessing import normalize
+from pathlib import Path
 
+# ----------------------------
+# Paths (locked to this file)
+# ----------------------------
+SCRIPT_DIR = Path(__file__).resolve().parent
+DATA_PATH  = SCRIPT_DIR / "data" / "movies.csv"
+OUT_DIR    = SCRIPT_DIR / "vector_index"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+print("Reading:", DATA_PATH)
+
+# ----------------------------
 # Load dataset
-import os
-script_dir = os.path.dirname(os.path.abspath(__file__))          # folder where ingest.py lives
-data_path  = os.path.join(script_dir, "data", "movies.csv")      # .../project_n_movie_recommender/data/movies.csv
-print("Reading:", data_path)                                     # debug print; keep it
+# ----------------------------
+df = pd.read_csv(DATA_PATH)
 
-df = pd.read_csv(data_path)
-
-# Adjust column names if needed (make sure these exist in your CSV)
-if not {'Rank','Title', 'Genre', 'Description','Director','Actors','Year','Runtime (Minutes)','Rating','Votes','Revenue (Millions)','Metascore'}.issubset(df.columns):
-    print("⚠️ Please check your CSV column names. Required: title, genre, description")
+required = {
+    'Rank','Title','Genre','Description','Director','Actors',
+    'Year','Runtime (Minutes)','Rating','Votes','Revenue (Millions)','Metascore'
+}
+if not required.issubset(df.columns):
+    print("⚠️ Please check your CSV column names. Required at minimum: Title, Genre, Description")
     print("Current columns:", df.columns.tolist())
-    exit()
+    raise SystemExit(1)
 
-# Combine fields into one searchable string
+# ----------------------------
+# Build searchable text
+# ----------------------------
 df["content"] = (
     " | movie is " + df["Title"] + " - " +
     " | type: " + df["Genre"] + " | " +
-    " | context is: " +  df["Description"] +
+    " | context is: " + df["Description"] +
     " | Directed by " + df["Director"] +
     " | Starring: " + df["Actors"] +
     " | Year: " + df["Year"].astype(str) +
@@ -34,26 +49,27 @@ df["content"] = (
     " | Metascore: " + df["Metascore"].astype(str)
 )
 
-
-from sklearn.preprocessing import normalize
-
-# Create and normalize embeddings
+# ----------------------------
+# Embeddings (normalize -> cosine via inner product)
+# ----------------------------
 model = SentenceTransformer('all-MiniLM-L6-v2')
 embeddings = model.encode(df["content"].tolist(), show_progress_bar=True)
-embeddings = normalize(embeddings)  # L2 normalize
+embeddings = normalize(embeddings)                       # L2-normalize for cosine
+embeddings = embeddings.astype(np.float32)
 
-# Create FAISS index (inner product works like cosine on normalized vectors)
+# ----------------------------
+# FAISS index (IP = cosine on normalized)
+# ----------------------------
 index = faiss.IndexFlatIP(embeddings.shape[1])
-index.add(embeddings.astype(np.float32))
+index.add(embeddings)
 
-# Ensure vector_index folder exists
-os.makedirs("vector_index", exist_ok=True)
-
-# Save FAISS index
-faiss.write_index(index, "vector_index/faiss_movies.index")
-
-# Save metadata (movie info)
-with open("vector_index/movie_metadata.pkl", "wb") as f:
+# ----------------------------
+# Save index + metadata next to this script
+# ----------------------------
+faiss.write_index(index, str(OUT_DIR / "faiss_movies.index"))
+with open(OUT_DIR / "movie_metadata.pkl", "wb") as f:
     pickle.dump(df.to_dict(), f)
 
-print("✅ FAISS index and metadata saved successfully!")
+print("✅ FAISS index and metadata saved:", OUT_DIR)
+print("   -", OUT_DIR / "faiss_movies.index")
+print("   -", OUT_DIR / "movie_metadata.pkl")
