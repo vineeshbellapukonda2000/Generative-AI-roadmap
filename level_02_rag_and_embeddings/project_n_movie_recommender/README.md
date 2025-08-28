@@ -1,4 +1,4 @@
-# Project N — GenAI Movie & Show Recommender (Phase 1)
+# Project N — GenAI Movie & Show Recommender 
 
 RAG-powered semantic recommender that suggests movies/shows by mood, theme, or example titles, with explainability and Netflix-style enhancements.
 
