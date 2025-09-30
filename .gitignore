@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pkl
+
+# Virtual envs
+.conda/
+venv/
+.env
+
+# Vector index / cache (generated artifacts)
+*.npy
+*.json
+*.index
+
+# Environment files
+.env
+
