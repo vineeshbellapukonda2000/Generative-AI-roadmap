@@ -86,3 +86,9 @@ def cli():
 
 if __name__ == "__main__":
     cli()
+
+def rag_pipeline(query, k=5):
+    chunks, vecs, index, model = load_artifacts()
+    retrieved = search_mmr(query, model, index, chunks, vecs, k=k)
+    return retrieved  # or return the texts you want
+
