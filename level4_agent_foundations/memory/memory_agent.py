@@ -1,146 +1,154 @@
 # memory_agent.py
-# Week 2 – Day 2: Short-term memory for chat and an Agent (ReAct) with memory
+# Week 2 – Day 2: Short-term memory for chat and an Agent with memory
 # Run:  python memory_agent.py
 
 print(">>> running memory_agent.py")
 
+from pathlib import Path
+import os
+
 from dotenv import load_dotenv
-load_dotenv()  # loads OPENAI_API_KEY from .env
+
+# Always load .env from the SAME folder as this file (bulletproof)
+load_dotenv(dotenv_path=Path(__file__).with_name(".env"))
+
+# Quick sanity check
+if not os.getenv("OPENAI_API_KEY"):
+    raise ValueError(
+        "OPENAI_API_KEY not found. Make sure a .env file exists next to memory_agent.py "
+        "and contains OPENAI_API_KEY=..."
+    )
 
 from langchain_openai import ChatOpenAI
 
-# Option A: minimal conversational memory
-from langchain.chains import ConversationChain
-from langchain.memory import ConversationBufferMemory
-
-# Option B: Agent (ReAct) with a tiny tool + memory
-from langchain.agents import initialize_agent, Tool
-from langchain.agents.agent_types import AgentType
+# Option A: simple memory chat (works reliably)
+from langchain_core.messages import HumanMessage
+from langchain_core.chat_history import InMemoryChatMessageHistory
 
 
 # ---------------------------
-# Option A — ConversationChain (simplest way to *see* memory)
+# Option A — Simple chat with memory (clean + stable)
 # ---------------------------
-def run_conversation_chain_demo():
+def run_simple_memory_chat():
     """
-    ConversationChain expects memory_key='history' and input_key='input'.
-    This demo proves the model remembers earlier turns.
+    Minimal, stable "memory" demo.
+    Keeps chat history in memory and sends the full history each time.
     """
-    print("\n=== Option A: ConversationChain with Memory ===")
+    print("\n=== Option A: Simple Chat with Memory ===")
 
     llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
-    memory = ConversationBufferMemory(
-        memory_key="history",   # <-- required by ConversationChain
-        input_key="input",      # <-- the field name you'll pass to .predict
-        return_messages=True,   # keep raw messages for fidelity
-    )
+    history = InMemoryChatMessageHistory()
 
-    convo = ConversationChain(llm=llm, memory=memory, verbose=True)
-
-    # Scripted mini-demo
+    # Scripted demo
     print("\n--- Scripted demo ---")
-    print("> You: My name is Vineesh. Remember that.")
-    print(convo.predict(input="My name is Vineesh. Remember that."))
-    print("> You: What is my name?")
-    print(convo.predict(input="What is my name?"))
-    print("> You: Yesterday you suggested a low-caffeine coffee; which one was it?")
-    print(convo.predict(input="Yesterday you suggested a low-caffeine coffee; which one was it? (make something up if needed)"))
+    user_1 = "My name is Vineesh. Remember that."
+    history.add_user_message(user_1)
+    ai_1 = llm.invoke(history.messages)
+    history.add_ai_message(ai_1.content)
+    print("Assistant:", ai_1.content)
 
-    # Interactive loop (Ctrl+C to exit)
-    print("\n--- Interactive (type to chat; Ctrl+C to exit) ---")
-    try:
-        while True:
-            user = input("You: ")
-            reply = convo.predict(input=user)
-            print("Assistant:", reply)
-    except KeyboardInterrupt:
-        print("\n[Exiting ConversationChain demo]")
+    user_2 = "What is my name?"
+    history.add_user_message(user_2)
+    ai_2 = llm.invoke(history.messages)
+    history.add_ai_message(ai_2.content)
+    print("Assistant:", ai_2.content)
+
+    user_3 = "Yesterday you suggested a low-caffeine coffee; which one was it? (make something up if needed)"
+    history.add_user_message(user_3)
+    ai_3 = llm.invoke(history.messages)
+    history.add_ai_message(ai_3.content)
+    print("Assistant:", ai_3.content)
+
+    # Interactive
+    print("\n--- Interactive (press Enter on empty line to exit) ---")
+    while True:
+        user = input("You: ").strip()
+        if not user:
+            print("[Exiting Option A]")
+            break
+
+        history.add_user_message(user)
+        ai = llm.invoke(history.messages)
+        history.add_ai_message(ai.content)
+        print("Assistant:", ai.content)
 
 
 # ---------------------------
-# Option B — Agent (ReAct) with memory + a tiny tool
+# Option B — Agent with memory + a tiny tool (LangGraph tool-calling)
 # ---------------------------
 def keyword_extractor(text: str) -> str:
-    """
-    Tiny demo tool so the Agent has something to call.
-    In Day 3 you'll plug real search tools (Tavily/SerpAPI).
-    """
     import re
     from collections import Counter
 
-    words = re.findall(r"[A-Za-z][A-Za-z\-']{2,}", text.lower())
+    words = re.findall(r"[A-Za-z][A-Za-z\\-']{2,}", text.lower())
     common = [w for w, _ in Counter(words).most_common(8)]
     return "Keywords: " + ", ".join(common)
 
 
-def run_agent_with_memory_demo():
+def run_agent_with_memory():
     """
-    ReAct-style Agent that ALSO remembers chat history.
-    Agents expect memory_key='chat_history'.
-    Shows: Thought → Action → Observation + memory across turns.
+    Modern replacement for initialize_agent + AgentType:
+    Use LangGraph + create_react_agent with a memory checkpoint.
     """
-    print("\n=== Option B: Agent (ReAct) with Memory ===")
+    print("\n=== Option B: Agent with Tool + Memory (LangGraph) ===")
+
+    from langchain_core.tools import tool
+    from langgraph.prebuilt import create_react_agent
+    from langgraph.checkpoint.memory import MemorySaver
 
     llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
-    tools = [
-        Tool(
-            name="KeywordExtractor",
-            func=keyword_extractor,
-            description="Extracts top keywords from the given text.",
-        )
-    ]
+    @tool
+    def KeywordExtractor(text: str) -> str:
+        "Extract top keywords from the given text."
+        return keyword_extractor(text)
 
-    memory = ConversationBufferMemory(
-        memory_key="chat_history",  # <-- Agents use 'chat_history'
-        return_messages=True,
-    )
+    tools = [KeywordExtractor]
 
-    agent = initialize_agent(
+    # Memory store for the agent
+    checkpointer = MemorySaver()
+
+    agent = create_react_agent(
+        model=llm,
         tools=tools,
-        llm=llm,
-        agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,  # ReAct pattern
-        verbose=True,                # prints Thought/Action/Observation
-        memory=memory,               # <-- enable memory
-        handle_parsing_errors=True,
+        checkpointer=checkpointer,
     )
 
-    # Scripted mini-demo
+    # IMPORTANT: thread_id keeps memory across turns
+    config = {"configurable": {"thread_id": "vineesh_memory_demo"}}
+
+    def ask(q: str):
+        result = agent.invoke({"messages": [HumanMessage(content=q)]}, config=config)
+        return result["messages"][-1].content
+
+    # Scripted demo
     print("\n--- Scripted demo ---")
     print("> You: My favorite topic is specialty coffee beans from Ethiopia.")
-    print(agent.run("My favorite topic is specialty coffee beans from Ethiopia."))
-    print("> You: Extract some keywords from my preference.")
-    print(agent.run("Extract some keywords from my preference."))
-    print("> You: Based on what I said earlier, suggest a café style I might like.")
-    print(agent.run("Based on what I said earlier, suggest a café style I might like."))
+    print("Assistant:", ask("My favorite topic is specialty coffee beans from Ethiopia."))
 
-    # Interactive loop (Ctrl+C to exit)
-    print("\n--- Interactive (type to chat; Ctrl+C to exit) ---")
-    try:
-        while True:
-            user = input("You: ")
-            reply = agent.run(user)
-            print("Assistant:", reply)
-    except KeyboardInterrupt:
-        print("\n[Exiting Agent demo]")
+    print("> You: Extract some keywords from my preference.")
+    print("Assistant:", ask("Extract some keywords from my preference."))
+
+    print("> You: Based on what I said earlier, suggest a café style I might like.")
+    print("Assistant:", ask("Based on what I said earlier, suggest a café style I might like."))
+
+    # Interactive
+    print("\n--- Interactive (press Enter on empty line to exit) ---")
+    while True:
+        user = input("You: ").strip()
+        if not user:
+            print("[Exiting Option B]")
+            break
+        print("Assistant:", ask(user))
 
 
 # ---------------------------
 # Main
 # ---------------------------
 if __name__ == "__main__":
-    try:
-        # Pick ONE to start. Both show memory; Option B also shows ReAct tool use.
-        # Comment out the one you don't want for now.
+    # Start with Option A (most stable)
+    run_simple_memory_chat()
 
-        # Option A: simplest memory
-        run_conversation_chain_demo()
-
-        # Option B: agent + memory (uncomment to try)
-        # run_agent_with_memory_demo()
-
-    except Exception as e:
-        import traceback
-        print("\n[ERROR] An exception occurred:\n")
-        traceback.print_exc()
+    # Uncomment this after Option A works
+    # run_agent_with_memory()
