@@ -1,0 +1,65 @@
+The complete guide to remote onboarding for new-hires
+
+What is remote onboarding?
+Onboarding is the official process of integrating new team members into an organization. Remote onboarding is done via technology without any face-to-face interactions.
+
+How long should remote onboarding take?
+GitLab believes the onboarding process is incredibly important. We don’t expect anyone to hit the ground running from day one.
+
+We anticipate the remote onboarding process to take at least two full weeks, with the third week designated for team-specific onboarding and training. We encourage new team members to participate in their teams’ work in the first two weeks, but without pressure to contribute heavily.
+
+What is an onboarding session?
+At GitLab, we like to do what we call “dogfooding” our own product. Hence onboarding tasks are completed in a GitLab issue.
+
+All onboarding steps are found in an onboarding issue template, which contains a standardized set of tasks and steps that each new team member will complete. The onboarding process for the new team member is self-driven and self-learningand as asynchronous as possible. This is intentional, in order to aid acclimation into the remote life at GitLab.
+
+Read more about GitLab’s all-remote onboarding process in our handbook.
+
+How to manage onboarding new hires remotely
+Onboarding remotely should focus on three key dimensions: the organizational, the technical, and the social. By using this integrated approach, top companies enable their team members to stay and thrive in their roles. We’ll show how you can focus on these three key dimensions of onboarding through an all-remote onboarding process.
+
+How to prepare for remote onboarding
+One way to begin creating social connections for new remote team members is to have them added to a chat channel. GitLab’s #new_team_members Slack channel is a place for people to introduce themselves with photos and information about themselves and their interests.
+
+Organizational onboarding
+A large part of onboarding is providing answers to logistical questions:
+
+How do I sign up for benefits?
+What tools should I use?
+Where do I go to find answers?
+Who can help me with ____?
+Traditional in-person companies usually rely on trainers or more hands-on approaches to help new hires navigate their surroundings. All-remote companies have to be more efficient and make information easily accessible, so documentation will be essential for a smooth onboarding process. At GitLab, we provide a detailed handbook that is always evolving.
+
+The GitLab team handbook is the central repository for how we run the company. It consists of over 2,000 web pages of text, all searchable of course. Our handbook serves as a single source of truth that all team members can reference and depend on for answers about GitLab.
+
+For onboarding, we’re able to direct new hires to a huge repository of information and also teaching them to be self-sufficient and proactive when looking for answers. Because we’ve implemented a handbook-first approach, the GitLab handbook is always changing and growing as we learn new things.
+
+In an all-remote setting where team members are possibly working from a variety of timezones, mastering asynchronous workflows is vital to avoiding dysfunction. Onboarding through documentation is more efficient because it’s scalable, repeatable, and instills the basics of asynchronous work.
+
+Additional resources:
+
+GitLab onboarding
+Guide for starting a remote job
+Adopting a self-service and self-learning mentality
+Technical requirements for all-remote onboarding
+While tools are an important part of any role, new hires need to feel empowered to use them. Organizations can help build technical confidence by setting up early wins with action items the new hire can complete as they move through their training. Organizational onboarding provides the access to information through handbooks/documentation, and technical onboarding is about using that knowledge to work through the tools.
+
+At GitLab, we practice dogfooding. Our entire company uses GitLab to collaborate on the handbook and we also create issues and merge requests in our product. For all new GitLab hires, we have created an onboarding issue template that has tasks to complete each day. We believe in using the tools we create. This allows new hires to become familiar with GitLab in a way that feels meaningful (e.g. in learning GitLab, they are also accomplishing necessary onboarding tasks). This also provides a continual set of new users to test GitLab with fresh eyes. These individuals are ideally positioned to point out missing features or areas for improvement as we iterate on the product.
+
+For technical onboarding, give new hires access to the tools they’ll be using in their roles and, most importantly, encourage them to use the tools as early as possible. Using tools, even for very small tasks, builds confidence and helps new employees to feel productive and empowered.
+
+Common remote onboarding challenges
+One of the biggest challenges that new team members may encounter when onboarding remotely is not knowing who to ask for help with technical issues or “newbie questions.” Assigning an onboarding buddy is an essential step so that team members always have a friendly face they can talk to.
+
+Onboarding remotely can also bring technical issues: everything from delayed equipment delivery, to trouble with account creation, to the need to rapidly acquire new technical skills. It’s very important to ensure that your IT team has adequate resources to be able to support new team members during their first days and weeks on the job.
+
+Crucially, when there are issues with onboarding, new team members may not feel comfortable raising them. Close the loop by asking for regular feedback on the onboarding experience, and be sure to act on that feedback.
+
+Additional resources:
+
+All-remote management
+Tools that enable remote teams
+3 things I learned in my first month at GitLab
+Social requirements for all-remote onboarding
+Starting a new job can be overwhelming. If a new hire is used to working in a traditional office, adjusting to the remote work lifestyle might be a challenge. Having socialization as part of the onboarding process can help team members feel more connected to their new teams, even though they don’t share an office.
+

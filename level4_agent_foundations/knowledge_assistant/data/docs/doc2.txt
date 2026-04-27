@@ -1,0 +1,1 @@
+LangGraph is used to build stateful agent workflows using nodes and edges. A StateGraph compiles into an executable graph.

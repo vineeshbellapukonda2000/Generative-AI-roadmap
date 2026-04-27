@@ -1,0 +1,105 @@
+Internal Knowledge Base – Apexion Technologies (Enterprise)
+1. Company Overview
+
+Apexion Technologies is a global enterprise specializing in cloud computing, AI-driven analytics, and large-scale distributed systems. The company operates across North America, Europe, and Asia, serving enterprise clients in finance, healthcare, and retail.
+
+2. Work Policy & Hours
+Standard working hours: 9 AM – 5 PM (local timezone)
+Flexible work arrangements available depending on team requirements
+Employees must attend all mandatory team meetings
+3. Leave Policy
+
+Employees are entitled to:
+
+20 days of paid annual leave
+12 days of sick leave
+5 days of emergency leave
+
+Unused annual leave can be carried forward up to 10 days.
+
+Leave requests must be submitted via the HR portal at least 3 days in advance.
+
+4. Remote Work Policy
+Employees may work remotely up to 3 days per week
+Fully remote roles require manager and HR approval
+Employees must maintain availability during core hours
+5. IT Security Policy
+Passwords must be at least 12 characters long
+Multi-Factor Authentication (MFA) is mandatory
+Passwords must be updated every 90 days
+Sharing credentials is strictly prohibited
+
+Security incidents must be reported within 1 hour.
+
+6. Data Privacy & Compliance
+
+Employees must:
+
+Handle customer data securely
+Follow GDPR and internal compliance standards
+Avoid unauthorized data sharing
+
+Violation of data policies may result in termination.
+
+7. Internal Tools & Platforms
+
+Apexion uses:
+
+Jira → task management
+Slack → communication
+Confluence → documentation
+GitHub → code repositories
+8. Onboarding Process
+
+New employees must:
+
+Complete HR documentation
+Set up company email and accounts
+Attend onboarding sessions
+Gain access to required tools
+9. Expense Reimbursement Policy
+
+Employees can claim:
+
+travel expenses
+accommodation
+business meals
+
+Claims must be submitted within 7 days with receipts.
+
+10. Performance Evaluation
+
+Employees are evaluated:
+
+every 6 months
+based on KPIs, impact, and collaboration
+
+Managers provide feedback and growth plans.
+
+11. Code of Conduct
+
+Employees must:
+
+maintain professionalism
+respect diversity and inclusion
+avoid conflicts of interest
+
+Harassment or misconduct leads to disciplinary action.
+
+12. Incident Reporting
+
+Employees must report:
+
+security breaches
+policy violations
+system failures
+
+Reports can be submitted anonymously via the internal portal.
+
+13. Support & Contact
+HR: hr@apexion.com
+IT Support: it-support@apexion.com
+Finance: finance@apexion.com
+
+
+

@@ -1,0 +1,92 @@
+A complete guide to the benefits of an all-remote company
+
+This guide provides a full overview of all the great benefits of a all remote company for both the organization and employees. Learn more here!
+A brief history of remote work
+
+1973: Jack Nilles creates the terms “telecommuting” and “teleworking”
+1979 Frank Schiff, VP and chief economist of the Committee for Economic Development states that “If 10 percent of those who commute to work each weekday were to start working at home two days each week, this would reduce the volume of such travel by 4 percent” in the Washington Post.
+1983: IBM runs an experiment and allows 5 employees to work from home. 4 years later nearly 2,000 of its employees were telecommuting.
+1987: 1.5 million Americans work remotely
+1991: Wi-Fi boosts the availability of remote work
+2015: GitLab, Inc. launches with 9 all-remote FTE’s
+2020: COVID-19 accelerates the validity of all-remote work
+What is the difference between “remote” and “hybrid”?
+Remote: a work arrangement in which employees do not commute to a central place of work
+
+Hybrid: when workers split their time between conventional in-office work and working remotely
+
+
+Benefits of remote work
+Reimagining how one’s day can be structured, and how that can easily vary from one 24-hour period to the next, is empowering. The freedom and flexibility that comes with all-remote enables employees to view work in an entirely new light.
+
+Rather than forcing one to build their life about a predefined daily schedule that involves an unavoidable commute, all-remote shifts that responsibility back to the individual.
+
+A number of studies from the likes of Google, Buffer, FlexJobs, and IWG show that driven individuals who place a high degree of value on autonomy and flexibility can experience new levels of joy and productivity in an all-remote environment.
+
+
+In the GitLab Unfiltered video above, two GitLab colleagues discuss the benefits of all-remote. For those with friends and family in various locales, team members are empowered to spend time with loved ones, investing in those relationships, without the dread of counting vacation days.
+
+An added benefit that I didn’t anticipate, but have taken full advantage of, is being able to visit friends and family that are in locales that aren’t necessarily close to where my home base is. Otherwise, I’d have to take paid time off (PTO) just to visit them.
+
+I’ve seen friends and family in Nashville, Raleigh, Iowa, New York, Boston, and all over the west coast. It’s not just visiting for a weekend. It’s being there for friends, family, birthdays, baby showers, and weddings. Across the board it has been a huge benefit [of all-remote at GitLab]. - Jackie G., Manager, Marketing Programs at GitLab
+
+Benefits for all-remote employees
+It’s important for employees to truly take advantage of the freedoms and possibilities enabled by remote, rather than simply remaining where they are and switching an office desk for a room in their home. This is the core benefit of remote as compared to work-from-home.
+
+Consider relocating to a lower cost-of-living environment, and look to integrate work into life rather than vice-versa. Remote work enables you to optimize for things like superior air quality and medical facilities, a healthier community environment, and better schools for your children. All of this requires premeditated action — to embrace the reality that work is now decoupled from geography.
+
+In the home, aim to create a dedicated working space (or work from a coworking space, external office, or cafe). It’s vital to intentionally separate work and life to prevent burnout. Moreover, don’t stop engaging with people. You may not fill your social quota entirely from work interactions, which enables you to pay closer attention to family, neighbors, and community opportunities.
+
+Be intentional about replacing your recovered commute time. Whether it’s fitness, cooking, cleaning, spending time with family, or resting, be deliberate about reclaiming that time and using it to improve your overall well-being.
+
+You have more flexibility in your daily life (for kids, parents, friends, groceries, sports, deliveries).
+No more time, stress, or money wasted on a commute (subway and bus fees, gas, car maintenance, tolls, etc.).
+It’s safer. With no commute, there’s no risk of getting into an accident traveling to and from work.
+You can optimize your life for superior air quality and medical facilities, a healthier community environment, and better schools for your children, rather than access to onsite jobs.
+Reduced interruption stress and increased productivity.
+Ability to travel to other places without taking vacation (family, fun, etc.).
+Freedom to relocate, be location independent, or even travel with other remote professionals.
+Less exposure to germs from sick coworkers.
+It can be easier to communicate with difficult colleagues remotely, reducing distractions from interpersonal drama or office politics.
+You can set up and decorate your office or workspace in whatever way works best for you.
+You can choose your working hours based on when you’re most productive.
+You have the opportunity to meet and work with people from many locations around the world, widening one’s view of the world and creating opportunities to learn about new cultures.
+Onboarding may be less stressful socially.
+Eating at home is better (sometimes) and cheaper.
+Taxes can be cheaper in some countries.
+Work clothes are not required.
+From family time to travel plans, there are many examples and stories of how remote work has impacted the lives of GitLab team members around the world.
+
+“The flexibility makes family life exponentially easier, which reduces stress and makes you more productive and motivated. You can’t put a dollar value on it – it’s priceless.” - Haydn, Regional Sales Director, GitLab
+
+Benefits for all-remote organizations
+Remote enables a more diverse and inclusive workforce, greater efficiency in workflows, and broader global coverage in servicing clients. It significantly de-risks a business, making it more resilient in the face of crises and able to maintain continuity regardless of whether an office is open or closed.
+
+Companies may need to create a remote leadership team and invest in manager training. However, there is little debate on whether this is an option. Remote work will soon simply be “work,” with global flexibility an expectation. Companies which have multiple offices already have teams which are remote to one another, and thus need a solid baseline of remote fluency to operate in optimal fashion.
+
+Limiting your company’s recruiting pipeline to a certain geographic region, or sourcing employees who are able and willing to relocate, is a competitive disadvantage.
+
+Not only does this create a less inclusive hiring process which reaches a less diverse set of candidates, it forces your organization to compete primarily on the basis of salary.
+
+You’re able to hire great people no matter where they live.
+GitLab has a truly global footprint, with team members in 65+ countries.
+Employees are more productive with fewer distractions, so long as leadership is supportive in equipping teams with the requisite tools, structure, and culture to thrive.
+For example, GitLab has a KPI of 65 tickets closed per support staff per month.
+Increased savings on office costs and compensation (due to hiring in lower-cost regions).
+GitLab maintains a more balanced payroll than other San Francisco Bay Area colocated companies.
+Each function has a new hire location factor target. As an example, marketing targets < 0.72 and finance targets < 0.69. (For reference, San Francisco is 1.00)
+We have a people group KPI for our average overall location factor to be < 0.65.
+All-remote naturally attracts self-motivated people.
+It’s easier to quickly grow and scale your company.
+GitLab does not own/lease office space. As colocated companies scale in size, their spend related to real estate will swell. This not only encompasses office space, but related activities such as security, cleaning, remodeling, etc. It also hampers growth. Hiring too many people in too short a time span will force you to move offices in quick succession, creating massive cost and inefficiency.
+Employees are increasingly expecting remote work options from their employers.
+GitLab sees over 3,000 applicants per week for open vacancies. Each applicant is given access to our and an overview of Life at GitLab before they are asked to invest time and energy in applying. We get more qualified applicants due to our transparency, showcased through examples like role description videos hosted on the GitLab Unfiltered YouTube channel.
+Companies often experience lower employee turnover and higher morale with remote work.
+GitLab enjoys a strong year-over-year voluntary retention rate. All-remote contributes to our high retention of people, as they’re able to take their career with them through life’s changes.
+You have fewer meetings and more focus on results and output of great work.
+Each meeting which is avoided by asynchronous communication and intentional documentation saves thousands of dollars in wages. Too, the time savings can be repurposed for generating additional value and empowering people to live richer lives as they work more efficiently.
+You don’t have to pay to relocate someone to join your team.
+GitLab’s talent acquisition department tracks cost per hire, which currently does not have a target.
+With employees located all over the world working asynchronously, contributions can continue even when one time zone’s working day is over.
+GitLab has a people group KPI stating that the percent of sent Slack messages that are not DMs be > 50%.
+There’s also business continuity in the case of local disturbances or natural disasters (e.g. political or weather-related events).

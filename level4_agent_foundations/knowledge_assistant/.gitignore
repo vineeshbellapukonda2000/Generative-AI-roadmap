@@ -1,0 +1,24 @@
+# environment
+.env
+venv/
+.venv/
+
+# python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# logs
+logs/
+*.log
+
+# Chroma local DB
+data/chroma_db/
+
+# system files
+.DS_Store
+
+# editor
+.vscode/
+.idea/

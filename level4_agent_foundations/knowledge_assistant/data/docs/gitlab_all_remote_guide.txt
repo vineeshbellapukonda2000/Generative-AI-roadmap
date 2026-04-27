@@ -1,0 +1,25 @@
+GitLab's Guide to All-Remote
+How to work remotely - the GitLab guide
+GitLab is one of the world’s largest all-remote companies with over 1,500 team members located in more than 65 countries around the world.
+
+Our all-remote workforce implementation is featured in The Journal of Organizational Design. It is also the centerpiece of case studies authored by Harvard Business School and INSEAD.
+
+On this page and subpages, we’ll share what “all-remote” really means, how it works at GitLab, some tips and tricks for remote teams, and resources to learn more.
+
+The Remote Manifesto
+All-remote work promotes:
+
+Hiring and working from all over the world (instead of from a central location).
+Flexible working hours (over set working hours).
+Writing down and recording knowledge (over verbal explanations).
+Written processes (over on-the-job training).
+Public sharing of information (over need-to-know access).
+Opening up documents for editing by anyone (over top-down control of documents).
+Asynchronous communication (over synchronous communication).
+The results of impact (over the activity put in).
+Formal communication channels (over informal communication channels).
+
+From the cost savings on office space to more flexibility in employees’ daily lives, all-remote work offers a number of advantages to organizations and their people.
+
+But we also recognize that being part of an all-remote company isn’t for everyone. Here’s a look at some of the advantages and disadvantages.
+
